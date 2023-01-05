@@ -28,7 +28,6 @@ namespace LinkedList
             }
             Console.WriteLine("{0} Inserted in linked list ", node.data);
             Console.ReadLine();
-
         }
         public void AddFirst(int data)      //AddFirst UC2
         {
@@ -36,11 +35,37 @@ namespace LinkedList
             newNode.next = head;
             head = newNode;
             Console.WriteLine($"{newNode.data} is added into the list.");
-            Console.ReadLine();
         }
         public void Append(int data)
         {
             AddLast(data);
+        }
+        public void InsertBetweenNodes(int insertAfter, int data, int insertBefore)       //InsertBetweenNodes() UC4.
+        {
+            Node newNode = new Node(data);
+            bool isFound = false;
+            Node temp = head;
+            if (temp == null)
+                Console.WriteLine("Linked List is empty");
+            else
+            {
+                while (temp != null)
+                {
+                    if (temp.data == insertAfter && temp.next.data == insertBefore)
+                    {
+                        //Console.WriteLine($"{temp.data} node is present");
+                        newNode.next = temp.next;
+                        temp.next = newNode;
+                        Console.WriteLine($"{newNode.data} insertion done between {temp.data} and {newNode.next.data}.");
+                        isFound = true;
+                        break;
+                    }
+                    temp = temp.next;
+                }
+            }
+            if (!isFound)
+                Console.WriteLine($"{data} node is not present.");
+                Console.ReadLine();
         }
         public void Display()
         {
