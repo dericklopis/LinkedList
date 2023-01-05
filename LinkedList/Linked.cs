@@ -66,7 +66,7 @@ namespace LinkedList
             }
             if (!isFound)
                 Console.WriteLine($"{data} node is not present.");
-                Console.ReadLine();
+            Console.ReadLine();
         }
         public void RemoveFirst()      //AddFirst UC5 
         {
@@ -121,7 +121,7 @@ namespace LinkedList
             }
             if (!isFound)
                 Console.WriteLine($"{data} node is not present.");
-                Console.ReadLine();
+            Console.ReadLine();
         }
         public void InsertAfter(int insertAfter, int data)       //Insert After any Node UC8.
         {
@@ -149,26 +149,56 @@ namespace LinkedList
             }
             if (!isFound)
                 Console.WriteLine($"{data} node is not present.");
-                Console.ReadLine();
+            Console.ReadLine();
         }
-        public void Display()
+        public void DeleteFromMiddle(int data)
         {
-            Node temp = this.head;
-            if (temp==null)
+            Node temp = head;
+            if (temp == null)
             {
-                Console.WriteLine("Linkedlist Is Empty");
+                Console.WriteLine("List is empty, deletion cant be done.");
+            }
+            else if (temp.next == null)
+            {
+                Console.WriteLine($"{temp.data} has been deleted");
                 Console.ReadLine();
-                return;
+                head = null;
             }
             else
             {
-                while (temp!=null)
+                while (temp.next != null)
                 {
-                    Console.WriteLine(temp.data+ " ");
-                    Console.ReadLine();
+                    if (temp.next.data == data)
+                    {
+                        Console.WriteLine($"{temp.next.data} has been deleted.");
+                        Console.ReadLine();
+                        temp.next = temp.next.next;
+                        //temp.next.next = null;
+                    }
                     temp = temp.next;
                 }
+
             }
         }
+            public void Display()
+            {
+                Node temp = this.head;
+                if (temp==null)
+                {
+                    Console.WriteLine("Linkedlist Is Empty");
+                    Console.ReadLine();
+                    return;
+                }
+                else
+                {
+                    while (temp!=null)
+                    {
+                        Console.WriteLine(temp.data+ " ");
+                        Console.ReadLine();
+                        temp = temp.next;
+                    }
+                }
+            }
     }
 }
+
