@@ -6,42 +6,54 @@ using System.Threading.Tasks;
 
 namespace LinkedList
 {
-    internal class Linked
+    public class Linkedlist
     {
         public Node head;
+
         public void Add(int data)
         {
-            Node objNode = new Node(data);
+            Node node = new Node(data);
             if (this.head == null)
             {
-                this.head = objNode;
+                this.head = node;
             }
             else
             {
                 Node temp = head;
-                while (temp.next != null)
+                while (temp.next!= null)
                 {
                     temp = temp.next;
                 }
-                temp.next = objNode;
+                temp.next = node;
             }
-            Console.WriteLine($"\n{objNode.data} inserted into Linked List");
-        }
+            Console.WriteLine("{0} Inserted in linked list ", node.data);
+            Console.ReadLine();
 
+        }
+        public void AddFirst(int data)      //AddFirst UC2
+        {
+            Node newNode = new Node(data);
+            newNode.next = head;
+            head = newNode;
+            Console.WriteLine($"{newNode.data} is added into the list.");
+        }
         public void Display()
         {
             Node temp = this.head;
-            if (temp == null)
+            if (temp==null)
             {
-                Console.WriteLine("\nLinkedList is empty");
+                Console.WriteLine("Linkedlist Is Empty");
                 return;
             }
-            Console.Write("\nLinked List => ");
-            while (temp != null)
+            else
             {
-                Console.Write(temp.data + " ");
-                temp = temp.next;
+                while (temp!=null)
+                {
+                    Console.WriteLine(temp.data+ " ");
+                    temp = temp.next;
+                }
             }
+            Console.ReadLine();
         }
     }
 }
