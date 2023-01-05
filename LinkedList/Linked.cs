@@ -35,6 +35,7 @@ namespace LinkedList
             newNode.next = head;
             head = newNode;
             Console.WriteLine($"{newNode.data} is added into the list.");
+            Console.ReadLine();
         }
         public void Append(int data)
         {
@@ -67,12 +68,20 @@ namespace LinkedList
                 Console.WriteLine($"{data} node is not present.");
                 Console.ReadLine();
         }
+        public void RemoveFirst()      //AddFirst UC5 
+        {
+            int deletedNode = head.data;
+            head = head.next;
+            Console.WriteLine($"First node {deletedNode} has been removed.");
+            Console.ReadLine();
+        }
         public void Display()
         {
             Node temp = this.head;
             if (temp==null)
             {
                 Console.WriteLine("Linkedlist Is Empty");
+                Console.ReadLine();
                 return;
             }
             else
@@ -80,8 +89,8 @@ namespace LinkedList
                 while (temp!=null)
                 {
                     Console.WriteLine(temp.data+ " ");
-                    temp = temp.next;
                     Console.ReadLine();
+                    temp = temp.next;
                 }
             }
         }

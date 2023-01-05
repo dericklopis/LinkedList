@@ -16,7 +16,8 @@ namespace LinkedList
                 "\n1: To Creating a linked list \n" +
                 "2: To AddFirst in a linked list \n" +
                 "3: To Append in a linked list \n" +
-                "4: To Insert Between in a linked list \n");
+                "4: To Insert Between in a linked list \n" +
+                "5: To Removing First Element in a linked list \n");
             int option = Convert.ToInt32(Console.ReadLine());
 
             switch (option)
@@ -46,6 +47,14 @@ namespace LinkedList
                     linkedlist2.AddFirst(56);
                     linkedlist2.AddLast(70);
                     linkedlist2.InsertBetweenNodes(56, 30, 70);
+                    break;
+                case 5:
+                    Linkedlist linkedlist3 = new Linkedlist();
+                    linkedlist3.AddFirst(56);
+                    linkedlist3.AddLast(30);
+                    linkedlist3.AddLast(70);
+                    linkedlist3.RemoveFirst();
+                    linkedlist3.Display();
                     break;
                 default:
                     Console.WriteLine("Choose a Valid Option");
