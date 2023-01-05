@@ -11,6 +11,13 @@ namespace LinkedList
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to LinkedList");
+
+            Linked objLinkedList = new Linked();
+            objLinkedList.Add(56);
+            objLinkedList.Add(30);
+            objLinkedList.Add(70);
+            objLinkedList.Display();
+
             Console.ReadLine();
         }
     }
